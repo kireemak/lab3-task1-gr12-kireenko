@@ -17,16 +17,30 @@ int removeEvenPositionLetters(char *sentence) {
   return removedCount;
 }
 
-int main() {
-  char sentence[300];
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        printf("Неверное количество аргументов.");
+        return 1;
+    }
 
-  printf("Введите предложения: ");
-  fgets(sentence, sizeof(sentence), stdin);
+    char* input = argv[1];
 
-  int removedCount = removeEvenPositionLetters(sentence);
+    printf("Исходные данные:\n%s\n", input);
 
-  printf("Результат после удаления букв на четных позициях: %s\n", sentence);
-  printf("Количество удаленных букв: %d\n", removedCount);
+    // Разделение предложений по точкам
+    char* token = strtok(input, ".");
 
-  return 0;
+    while (token != NULL) {
+        char* sentence = token;
+
+        int removedCount = removeEvenPositionLetters(sentence);
+
+        printf("\nРезультат после удаления букв на четных позициях: %s\n", sentence);
+        printf("Количество удаленных букв: %d\n", removedCount);
+
+        // Переход к следующему предложению
+        token = strtok(NULL, ".");
+    }
+
+    return 0;
 }
