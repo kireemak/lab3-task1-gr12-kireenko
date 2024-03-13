@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <string.h>
+// lab variant number: 24
 
 int removeEvenPositionLetters(char *sentence) {
     int removedCount = 0;
     int length = strlen(sentence);
 
     for (int i = 1; i < length; i += 2) {
-        sentence[i / 2] = sentence[i];
-        removedCount++;
+      // Сдвигаем буквы на четных позициях влево
+      sentence[i / 2] = sentence[i];
+      removedCount++;
     }
-
+    // Завершаем строку
     sentence[length / 2] = '\0';
 
     return removedCount;
