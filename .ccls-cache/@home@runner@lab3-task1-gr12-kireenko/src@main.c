@@ -19,13 +19,13 @@ int removeEvenPositionLetters(char *sentence) {
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
-        printf("Неверное количество аргументов.");
+        printf("Wrong number of arguments.");
         return 1;
     }
 
     char* input = argv[1];
 
-    printf("Исходные данные:\n%s\n", input);
+    printf("Initial data:\n%s\n", input);
 
     // Разделение предложений по точкам
     char* token = strtok(input, ".");
@@ -35,8 +35,8 @@ int main(int argc, char* argv[]) {
 
         int removedCount = removeEvenPositionLetters(sentence);
 
-        printf("\nРезультат после удаления букв на четных позициях: %s\n", sentence);
-        printf("Количество удаленных букв: %d\n", removedCount);
+        printf("\nResult after removing letters in even-numbered positions: %s\n", sentence);
+        printf("Number of letters removed: %d\n", removedCount);
 
         // Переход к следующему предложению
         token = strtok(NULL, ".");
